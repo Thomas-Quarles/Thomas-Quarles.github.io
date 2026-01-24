@@ -35,19 +35,71 @@ $(document).ready(function () {
   /////////////////////////////////////////////////
 
   // TODO 1: create a new shape object and add it to the array
-  
-
+  var shape = {
+    color: "blue",
+    shape: "circle",
+    repeat: 3
+  }
+dataShapes.push(shape);
   // TODO 2: add a new property to all data shapes
-  
+  for (let i = 0; i < dataShapes.length; i++) {
+    // Store the current object in the currentShape variable
+    const currentShape = dataShapes[i];
 
+    // Check the color property and assign goodBehavior
+    if (currentShape.color === "red") {
+        currentShape.goodBehavior = "bounce";
+    } else if (currentShape.color === "blue") {
+        currentShape.goodBehavior = "blink";
+    } else {
+        currentShape.goodBehavior = "spin";
+    }
+}
+
+// Log the updated array to the console to verify the results
+console.log(dataShapes);
   // TODO 3-a: add a function that handles the static display type
-  
+  function handleStatic(data) {
+    // Call the function setBackgroundWithObject, passing data as the argument
+    if (typeof setBackgroundWithObject === 'function') {
+        setBackgroundWithObject(data);
+    } else {
+        // Optional: Handle the case where setBackgroundWithObject is not defined
+        console.error("setBackgroundWithObject function is not defined.");
+    }
+
+    // Set animationDetails.displayType to 1
+    if (typeof animationDetails !== 'undefined') {
+        animationDetails.displayType = 1;
+    } else {
+        // Optional: Handle the case where animationDetails is not defined
+        console.error("animationDetails object is not defined.");
+    }
+}
 
   // TODO 4-a: add a function that handles the good display type
-  
+function handleGood(color, shape, repeat) {
+  // Call setBackgroundWithSimple with provided parameters
+  setBackgroundWithSimple(color, shape, repeat);
 
+  // Set animationDetails.displayType to 2
+  if (typeof animationDetails !== 'undefined') {
+    animationDetails.displayType = 2;
+  }
+}
   // TODO 5-a: add a function that handles the bad display type
+  function handleBad(data, repeat) {
+  // Increase repeat by 1
+  repeat++;
   
+  // Call setBackgroundWithMixed with updated repeat
+  setBackgroundWithMixed(data, repeat);
+  
+  // Set animationDetails.displayType to 3
+  if (typeof animationDetails !== 'undefined') {
+    animationDetails.displayType = 3;
+  }
+}
 
   /////////////////////////////////////////////////
   // BUTTON HANDLERS BELOW HERE (3-b, 4-b, 5-b) ///
@@ -55,17 +107,26 @@ $(document).ready(function () {
 
   function staticDisplay() {
     // TODO 3-b: call your handleStatic function
-    
+    handleStatic(dataShapes[currentIndex]);
   }
 
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
-    
+    const currentShape = dataShapes[currentIndex];
+
+// 2. Call handleGood, passing in the color, shape, and repeat properties
+handleGood(currentShape.color, currentShape.shape, currentShape.repeat);
   }
 
   function badDisplay() {
     // TODO 5-b: call your handleBad function
-    
+    const currentShape = dataShapes[currentIndex];
+
+// Create a variable called repeat and assign it the value of currentShape.repeat
+const repeat = currentShape.repeat;
+
+// Call handleBad, passing in currentShape and repeat
+handleBad(currentShape, repeat);
   }
 
   /////////////////////////////////////////////////
