@@ -32,8 +32,30 @@ function applyAndRender() {
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2, 3 & 5: Create the applyFilter function here
+function applyFilter() {
+  // 3. Add a Nested Loop Inside the Function
+  for (let row = 0; row < image.length; row++) {
+    for (let col = 0; col < image[row].length; col++) {
+      let pixel = image[i][j];
+      let pixelArray = rgbStringToArray(pixel);
+// This is where I’ll modify the color values later
+      let updatedPixel = rgbArrayToString(pixelArray);
+      image[i][j] = updatedPixel;
+      pixelArray[RED] = 200; 
+      // Access individual pixel: image[row][col]
+      const RED = 200; // Define the CONSTANT
 
-
+function reddify(pixel) {
+  // Directly modify index 0 (Red) in the [R, G, B] array
+  pixel[0] = RED;
+}
+    }
+  }
+}
+// 2. Call applyFilter When the Page Loads (Inside applyAndRender)
+function applyAndRender() {
+  applyFilter(); // Call the new function
+}
 // TODO 9 Create the applyFilterNoBackground function
 
 

@@ -11,9 +11,9 @@ body {
   position: relative;
 }
 
-#gameItem {
-  background-color: teal;
-  width: 50px;
+#walker {
+  background-color: red;
+  width: 25px;
   height: 50px;
   position: absolute;
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
