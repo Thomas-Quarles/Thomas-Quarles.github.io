@@ -8,23 +8,23 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
 
   // Constant Variables
+  var FRAME_RATE = 60;
+  var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
 
-  const KEY = {
+const KEY = {
   ENTER: 13,
   LEFT: 37,
   UP: 38,
   RIGHT: 39,
   DOWN: 40,
   };
-  var FRAME_RATE = 60;
-  var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
   let walker = {
-  x: 0,
-  y: 0,
-  speedX: 0,
-  speedY: 0,
+    x: 0,
+    y: 0,
+    speedX: 0,
+    speedY: 0
 };
 
   // one-time setup
@@ -36,8 +36,8 @@ function runProgram(){
 
   Note: You can have multiple event listeners for different types of events.
   */
-  $(document).on('keydown', handleKeyDown);    
-  $(document).on("keyup", handleKeyUp);                      
+  $(document).keydown(handleKeyDown);    
+  $(document).keyup(handleKeyUp);                      
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -50,7 +50,7 @@ function runProgram(){
   function newFrame() {
     repositionGameItem();
     wallCollision();
-    redrawGameItem();D
+    redrawGameItem();2
   }
   
   /* 
