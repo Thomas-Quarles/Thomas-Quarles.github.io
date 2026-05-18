@@ -50,7 +50,7 @@ function runProgram(){
   function newFrame() {
     repositionGameItem();
     wallCollision();
-    redrawGameItem();
+    redrawGameItem();D
   }
   
   /* 
@@ -96,22 +96,22 @@ function redrawGameItem() {
 function wallCollision() {
     // Left wall
     if (walker.x < 0) {
-        walker.x -= walker.speedX;
+        walker.x = 0;
     }
 
     // Right wall
-    if (walker.x > $("#board").width()) {
-        walker.x -= walker.speedX;
+    if (walker.x > $("#board").width() - $("#walker").width()) {
+        walker.x = $("#board").width() - $("#walker").width();
     }
 
     // Top wall
     if (walker.y < 0) {
-        walker.y -= walker.speedY;
+        walker.y = 0;
     }
 
     // Bottom wall
-    if (walker.y > $("#board").height()) {
-        walker.y -= walker.speedY;
+    if (walker.y > $("#board").height() - $("#walker").height()) {
+        walker.y = $("#board").height() - $("#walker").height();
     }
 }
   
@@ -123,4 +123,4 @@ function wallCollision() {
     $(document).off();
   }
   
-}
+}D
