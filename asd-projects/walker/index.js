@@ -11,7 +11,7 @@ function runProgram(){
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
 
-const KEY = {
+var KEY = {
   ENTER: 13,
   LEFT: 37,
   UP: 38,
@@ -60,16 +60,16 @@ const KEY = {
   Note: You can have multiple event handlers for different types of events.
   */
  function handleKeyDown(event) {
-    if (event.which === KEY_LEFT) {
+    if (event.which === KEY.LEFT) {
         walker.speedX = -5;
     }
-    if (event.which === KEY_RIGHT) {
+    if (event.which === KEY.RIGHT) {
         walker.speedX = 5;
     }
-    if (event.which === KEY_UP) {
+    if (event.which === KEY.UP) {
         walker.speedY = -5;
     }
-    if (event.which === KEY_DOWN) {
+    if (event.which === KEY.DOWN) {
         walker.speedY = 5;
     }
 }
