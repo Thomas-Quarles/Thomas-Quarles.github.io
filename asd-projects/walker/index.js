@@ -36,8 +36,8 @@ const KEY = {
 
   Note: You can have multiple event listeners for different types of events.
   */
-  $(document).keydown(handleKeyDown);    
-  $(document).keyup(handleKeyUp);                      
+  $(document).on("keydown", handleKeyDown);
+  $(document).on("keyup", handleKeyUp);                      
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -50,7 +50,7 @@ const KEY = {
   function newFrame() {
     repositionGameItem();
     wallCollision();
-    redrawGameItem();2
+    redrawGameItem();
   }
   
   /* 
